@@ -8,10 +8,10 @@
 #include <stdint.h>
 
 //the path to libft header file
-#include "./libft/libft.h"
+#include "libft/libft.h"
 
 int ft_printf(const char * str, ...);
-int print_charactre(char c);
+int print_character(char c);
 int print_string(char * s);
 int print_integer(int number);
 int print_hexa(unsigned int number, char c);

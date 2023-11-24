@@ -2,9 +2,6 @@
 
 int print_string(char * s)
 {
-    int count;
-
-    count = 0;
     if (!s)
     {
         ft_putstr_fd("(null)", 1);

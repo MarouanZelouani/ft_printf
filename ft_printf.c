@@ -7,7 +7,7 @@ static int print_after_percent(char c, va_list args)
 
     count = 0;
     if (c == 'c')
-        count += print_charactre(va_arg(args, int));
+        count += print_character(va_arg(args, int));
     else if (c == 's')
         count += print_string(va_arg(args, char *));
     else if (c == 'd')
@@ -23,7 +23,7 @@ static int print_after_percent(char c, va_list args)
     else if (c == 'u')
         count += print_unsigned(va_arg(args, unsigned int));
     else if (c == '%')
-        count += print_charactre('%');
+        count += print_character('%');
     return (count);
 }
 
