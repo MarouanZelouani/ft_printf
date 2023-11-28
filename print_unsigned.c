@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_unsigned.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzelouan <mzelouan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/28 01:33:35 by mzelouan          #+#    #+#             */
+/*   Updated: 2023/11/28 01:33:36 by mzelouan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int count_digits (unsigned int n)
 {
     int count;
 
-    count = 0;
-    while (n != 0)
+    count = 1;
+    while (n / 10 != 0)
     {
         n = n/10;
         count++;
@@ -35,8 +47,10 @@ static char *ft_utoa(unsigned int n)
 int print_unsigned(unsigned int number)
 {
     char *holder;
-    
+    int len;
     holder = ft_utoa(number);
     ft_putstr_fd(holder, 1);
-    return (ft_strlen(holder));
+	len = ft_strlen(holder);
+	free(holder);
+    return (len);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_hexa.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzelouan <mzelouan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/28 01:33:54 by mzelouan          #+#    #+#             */
+/*   Updated: 2023/11/28 01:33:55 by mzelouan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int Hexa_len (unsigned int number)
@@ -35,11 +47,16 @@ int print_hexa(unsigned int number, char c)
     char *holder;
     int remainder;
     int len;
-    
+    if (number == 0)
+    {
+        ft_putchar_fd('0', 1);
+        return (1);
+    }
     len = Hexa_len(number);
     holder = (char *) malloc ((len + 1) * sizeof(char));
     holder[len] = '\0';
-    while (number != 0) {
+    while (number != 0)
+    {
         remainder = 0;
         remainder = number % 16;
         
@@ -54,5 +71,7 @@ int print_hexa(unsigned int number, char c)
     }
     change_holder(holder, c);
     ft_putstr_fd(holder, 1);
-    return (ft_strlen(holder));
+    len = ft_strlen(holder);
+    free(holder);
+    return (len);
 }

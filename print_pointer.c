@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_pointer.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mzelouan <mzelouan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/28 01:33:46 by mzelouan          #+#    #+#             */
+/*   Updated: 2023/11/28 01:33:47 by mzelouan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int Hexa_len (uintptr_t number)
@@ -20,12 +32,12 @@ int print_pointer(uintptr_t p)
     int remainder;
     int len;
     
-    ft_putstr_fd("0x", 1);
     if (p == 0)
     {
-        ft_putchar_fd('0', 1);
-        return (3);
+        ft_putstr_fd("(nil)", 1);
+        return (5);
     }
+    ft_putstr_fd("0x", 1);
     len = Hexa_len(p);
     holder = (char *) malloc ((len + 1) * sizeof(char));
     holder[len] = '\0';
@@ -43,5 +55,7 @@ int print_pointer(uintptr_t p)
         p = p / 16;
     }
     ft_putstr_fd(holder, 1);
-    return (ft_strlen(holder) + 2);
+    len = ft_strlen(holder) + 2;
+    free(holder);
+    return (len);
 }
