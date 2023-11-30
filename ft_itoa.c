@@ -6,11 +6,11 @@
 /*   By: mzelouan <mzelouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 15:12:54 by mzelouan          #+#    #+#             */
-/*   Updated: 2023/11/25 20:32:44 by mzelouan         ###   ########.fr       */
+/*   Updated: 2023/11/30 13:50:10 by mzelouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 static int	count_digits(long int n)
 {

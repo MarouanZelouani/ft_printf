@@ -6,14 +6,14 @@
 /*   By: mzelouan <mzelouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 01:34:01 by mzelouan          #+#    #+#             */
-/*   Updated: 2023/11/28 01:34:02 by mzelouan         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:48:20 by mzelouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_character(char c)
+int	print_character(char c)
 {
-    ft_putchar_fd(c, 1);
-    return (1);
+	ft_putchar_fd(c, 1);
+	return (1);
 }

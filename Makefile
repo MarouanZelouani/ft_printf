@@ -6,12 +6,11 @@
 #    By: mzelouan <mzelouan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 01:34:12 by mzelouan          #+#    #+#              #
-#    Updated: 2023/11/28 01:34:15 by mzelouan         ###   ########.fr        #
+#    Updated: 2023/11/30 13:53:19 by mzelouan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-LIBFT = ./libft/libft.a
 HFILE = ft_printf.h
 
 SRC =	ft_printf.c\
@@ -21,6 +20,12 @@ SRC =	ft_printf.c\
 			print_pointer.c\
 			print_string.c\
 			print_unsigned.c\
+			ft_isalpha.c\
+			ft_toupper.c\
+			ft_strlen.c\
+			ft_putstr_fd.c\
+			ft_putchar_fd.c\
+			ft_itoa.c\
 
 OB = $(SRC:.c=.o)
 CFLAGS = -Wall -Wextra -Werror
@@ -31,21 +36,17 @@ CC = cc
 all : $(NAME) 
 
 $(NAME) : $(OB) $(HFILE)
-	$(MAKE) -C ./libft 
-	cp libft/libft.a $(NAME)
-	$(AR) $(NAME) $(OB)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+	$(AR) $(NAME) $@
 
 re : fclean all
 
 clean : 
 	$(RM) $(OB)
-	$(MAKE) clean -C ./libft
 
 fclean : clean 
 	$(RM) $(NAME)
-	$(MAKE) fclean -C ./libft
 
 .PHONY : all clean fclean re

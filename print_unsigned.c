@@ -6,29 +6,29 @@
 /*   By: mzelouan <mzelouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 01:33:35 by mzelouan          #+#    #+#             */
-/*   Updated: 2023/11/28 01:33:36 by mzelouan         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:46:52 by mzelouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int count_digits (unsigned int n)
+static int	count_digits(unsigned int n)
 {
-    int count;
+	int	count;
 
-    count = 1;
-    while (n / 10 != 0)
-    {
-        n = n/10;
-        count++;
-    }
-    return (count);
+	count = 1;
+	while (n / 10 != 0)
+	{
+		n = n / 10;
+		count++;
+	}
+	return (count);
 }
 
-static char *ft_utoa(unsigned int n)
+static char	*ft_utoa(unsigned int n)
 {
-	int			count;
-	char		*s;
+	int		count;
+	char	*s;
 
 	count = count_digits(n);
 	s = (char *)malloc((count + 1) * sizeof(char));
@@ -44,13 +44,14 @@ static char *ft_utoa(unsigned int n)
 	return (s);
 }
 
-int print_unsigned(unsigned int number)
+int	print_unsigned(unsigned int number)
 {
-    char *holder;
-    int len;
-    holder = ft_utoa(number);
-    ft_putstr_fd(holder, 1);
+	char	*holder;
+	int		len;
+
+	holder = ft_utoa(number);
+	ft_putstr_fd(holder, 1);
 	len = ft_strlen(holder);
 	free(holder);
-    return (len);
+	return (len);
 }
